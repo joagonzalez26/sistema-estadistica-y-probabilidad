@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulador de Probabilidad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('images/fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+      width: 360px;
+      border-radius: 20px;
+      padding: 5px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    }
+
+    .card__content {
+      background: rgb(5, 6, 45);
+      border-radius: 17px;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: #fff;
+      max-height: 80vh;          /* 🔥 Agregado para limitar altura */
+      overflow-y: auto;          /* 🔥 Scroll interno vertical */
+    }
+
+    .heading {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 8px;
+    }
+
+    .card__content input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      background-color: #5B42F3;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #4a31c7;
+    }
+
+    #resultados {
+      overflow-x: auto;
+    }
+
+    #resultados table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    #resultados th, #resultados td {
+      padding: 4px 6px;
+      border: 1px solid #555;
+      text-align: center;
+      color: #00DDEB;
+    }
+
+    #resultados th {
+      background: #192038;
+      font-weight: 500;
+    }
+
+    .success-message {
+      text-align: center;
+      font-size: 14px;
+      padding: 6px;
+      background-color: #00ddeb22;
+      color: #00DDEB;
+      border: 1px solid #00DDEB;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      animation: fadein 0.5s ease;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(-5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card__content">
+      <p class="heading">Simulador de Probabilidad</p>
+      <input id="prob" type="number" step="0.01" min="0" max="1" placeholder="P éxito (0–1)" />
+      <input id="trials" type="number" min="1" placeholder="Ensayos por simulación (n)" />
+      <input id="sims" type="number" min="1" placeholder="Número de simulaciones" />
+      <button onclick="simular()">Simular</button>
+      <div id="resultados"></div>
+    </div>
+  </div>
+
+  <script>
+    function factorial(n) {
+      let f = 1;
+      for (let i = 2; i <= n; i++) f *= i;
+      return f;
+    }
+
+    function comb(n, k) {
+      return factorial(n) / (factorial(k) * factorial(n - k));
+    }
+
+    function binomPmf(n, k, p) {
+      return comb(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k);
+    }
+
+    function simular() {
+      const p = parseFloat(document.getElementById('prob').value.replace(',', '.'));
+      const n = parseInt(document.getElementById('trials').value);
+      const sims = parseInt(document.getElementById('sims').value);
+
+      if (isNaN(p) || p < 0 || p > 1) {
+        return alert('La probabilidad debe estar entre 0 y 1 (usa punto, no coma).');
+      }
+
+      if (isNaN(n) || n < 1) {
+        return alert('Número de ensayos debe ser un número entero mayor a 0.');
+      }
+
+      if (isNaN(sims) || sims < 1) {
+        return alert('Número de simulaciones debe ser un número entero mayor a 0.');
+      }
+
+      const counts = Array(n + 1).fill(0);
+
+      for (let i = 0; i < sims; i++) {
+        let succ = 0;
+        for (let j = 0; j < n; j++) {
+          if (Math.random() < p) succ++;
+        }
+        counts[succ]++;
+      }
+
+      let html = `<div class="success-message">✅ Simulación completada correctamente.</div>`;
+      html += '<table><tr>' +
+              '<th>Éxitos k</th>' +
+              '<th>Empírico<br>(conteo)</th>' +
+              '<th>Empírico<br>(freq.)</th>' +
+              '<th>Teórico<br>PMF</th>' +
+              '</tr>';
+      for (let k = 0; k <= n; k++) {
+        const empCount = counts[k];
+        const empFreq  = (empCount / sims).toFixed(3);
+        const theoP    = binomPmf(n, k, p).toFixed(3);
+        html += `<tr>
+                  <td>${k}</td>
+                  <td>${empCount}</td>
+                  <td>${empFreq}</td>
+                  <td>${theoP}</td>
+                 </tr>`;
+      }
+      html += '</table>';
+      document.getElementById('resultados').innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

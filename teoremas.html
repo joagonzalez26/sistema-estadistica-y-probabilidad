@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teoremas estadisticos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('images/fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tarjeta-conceptos {
+      background: white;
+      color: black;
+      width: 80%;
+      height: 90%;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+    }
+
+    h1, h2, h3 {
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="tarjeta-conceptos">
+    <h1>¿Qué son los teoremas estadísticos?</h1>
+    <p>Los teoremas estadísticos son reglas fundamentales basadas en matemáticas que permiten:</p>
+    <ul>
+      <li>Generalizar comportamientos de los datos.</li>
+      <li>Hacer inferencias o estimaciones sobre una población.</li>
+      <li>Comprender cómo se distribuyen los datos al aumentar el tamaño de la muestra.</li>
+    </ul>
+    <p>Son clave para entender cómo la incertidumbre se vuelve predecible con el uso de modelos matemáticos.</p>
+
+    <h3>1. Teorema de Bernoulli (Ley de los grandes números)</h3>
+    <p><strong>Enunciado:</strong> Cuando repetimos muchas veces un experimento aleatorio (como lanzar una moneda), la frecuencia relativa de un evento tiende a su probabilidad teórica.</p>
+    <p><strong>Fórmula:</strong> <code>limₙ→∞ (k/n) = p</code></p>
+    <ul>
+      <li><strong>n:</strong> número total de repeticiones</li>
+      <li><strong>k:</strong> veces que ocurre el evento</li>
+      <li><strong>p:</strong> probabilidad teórica</li>
+    </ul>
+    <p><strong>Ejemplo:</strong> Lanzar una moneda 1000 veces → la frecuencia de caras ≈ 0.5</p>
+
+    <h3>2. Teorema de Bayes</h3>
+    <p><strong>Enunciado:</strong> Permite calcular la probabilidad de un evento A dado que ocurrió B, usando información previa.</p>
+    <p><strong>Fórmula:</strong> <code>P(A|B) = [P(B|A) ⋅ P(A)] / P(B)</code></p>
+    <p><strong>Ejemplo:</strong> Un test da positivo en el 99% de los enfermos y 5% de los sanos. Si el 1% tiene la enfermedad, ¿cuál es la probabilidad de estar enfermo si el test dio positivo?</p>
+
+    <h3>3. Teorema del Límite Central (TLC)</h3>
+    <p><strong>Enunciado:</strong> Al tomar muchas muestras aleatorias, la distribución de las medias tiende a ser normal al aumentar el tamaño de la muestra.</p>
+    <p><strong>Fórmula:</strong> <code>X̄ ~ N(μ, σ² / n)</code></p>
+    <ul>
+      <li><strong>X̄:</strong> media muestral</li>
+      <li><strong>μ:</strong> media poblacional</li>
+      <li><strong>σ:</strong> desviación estándar</li>
+      <li><strong>n:</strong> tamaño de muestra</li>
+    </ul>
+    <p><strong>Ejemplo:</strong> μ=10, σ=2, n=100 → <code>X̄ ~ N(10, 0.2)</code></p>
+
+    <h3>4. Teorema de la Probabilidad Total</h3>
+    <p><strong>Enunciado:</strong> Si un evento ocurre por varios caminos, su probabilidad es la suma de las probabilidades condicionales multiplicadas por la probabilidad de cada camino.</p>
+    <p><strong>Fórmula:</strong> <code>P(B) = Σ P(B|Aᵢ) ⋅ P(Aᵢ)</code></p>
+    <p><strong>Ejemplo:</strong> Si hay 3 fábricas con distintas tasas de defectos, este teorema permite calcular la probabilidad total de obtener un producto defectuoso.</p>
+
+    <h2>Fórmulas Clave</h2>
+    <ul>
+      <li><strong>Esperanza matemática:</strong> <code>E(X) = ∑ xᵢ ⋅ P(xᵢ)</code> (discreta), <code>E(X) = ∫ x ⋅ f(x) dx</code> (continua)</li>
+      <li><strong>Varianza:</strong> <code>Var(X) = E(X²) − [E(X)]²</code> o <code>Var(X) = ∑ P(xᵢ) ⋅ (xᵢ − μ)²</code></li>
+      <li><strong>Desviación estándar:</strong> <code>σ = √Var(X)</code></li>
+      <li><strong>Estandarización (Z-score):</strong> <code>Z = (X − μ) / σ</code></li>
+    </ul>
+
+    <h2>Distribuciones Clave</h2>
+    <ul>
+      <li><strong>Binomial:</strong> Éxitos en n ensayos. Aplica en Bernoulli y TLC.</li>
+      <li><strong>Normal:</strong> Surge del TLC. Fundamental en inferencia.</li>
+      <li><strong>Hipergeométrica:</strong> Cuando no hay reemplazo.</li>
+      <li><strong>Poisson:</strong> Para eventos raros o poco frecuentes.</li>
+    </ul>
+
+    <h2>¡Aplicación para la práctica!</h2>
+    <p><strong>Problema:</strong> En control de calidad se toman muestras de 50 productos/día. Si μ=100g y σ=10g, ¿cuál es la probabilidad de que la media sea mayor a 102g?</p>
+    <p><strong>Solución con TLC:</strong> <code>Z = (102 − 100) / (10 / √50) ≈ 1.41</code> → Buscar en tabla Z para obtener la probabilidad.</p>
+  </div>
+</body>
+</html>

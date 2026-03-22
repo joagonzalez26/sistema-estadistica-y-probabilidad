@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables Estadísticas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('images/fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tarjeta-conceptos {
+      background: white;
+      color: black;
+      width: 80%;
+      height: 90%;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+    }
+
+    h1, h2, h3 {
+      margin-top: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="tarjeta-conceptos">
+    <h1>¿Qué es una Variable Estadística?</h1>
+    <p>Es una característica medible u observable que puede tomar distintos valores en una población o muestra.</p>
+
+    <h2>Tipos de Variables</h2>
+    <h3>1. Según su naturaleza:</h3>
+    <table>
+      <tr>
+        <th>Tipo</th>
+        <th>Definición</th>
+        <th>Ejemplo</th>
+      </tr>
+      <tr>
+        <td>Cualitativa</td>
+        <td>Expresa una cualidad, no se puede medir numéricamente.</td>
+        <td>Color de ojos, estado civil</td>
+      </tr>
+      <tr>
+        <td>→ Nominal</td>
+        <td>No tiene orden.</td>
+        <td>Rojo, Azul, Verde</td>
+      </tr>
+      <tr>
+        <td>→ Ordinal</td>
+        <td>Tiene orden.</td>
+        <td>Bajo, Medio, Alto</td>
+      </tr>
+      <tr>
+        <td>Cuantitativa</td>
+        <td>Se expresa con números.</td>
+        <td>Edad, peso, ingresos</td>
+      </tr>
+      <tr>
+        <td>→ Discreta</td>
+        <td>Toma valores enteros.</td>
+        <td>Número de hijos</td>
+      </tr>
+      <tr>
+        <td>→ Continua</td>
+        <td>Toma valores infinitos dentro de un intervalo.</td>
+        <td>Estatura, temperatura</td>
+      </tr>
+    </table>
+
+    <h2>Teoremas + Variables (Desarrollados y Aplicados)</h2>
+    <p>Veamos cómo cada teorema trabaja con variables específicas y cómo se aplican en la vida real.</p>
+
+    <h3>Teorema del Límite Central (TLC)</h3>
+    <p><strong>Trabaja con:</strong> Variables cuantitativas (generalmente continuas)</p>
+    <p><strong>Desarrollo:</strong> Al tomar más muestras aleatorias de una variable, la distribución de sus medias se aproxima a una normal.</p>
+    <p><strong>Condición:</strong> <code>n ≥ 30</code>, muestras independientes</p>
+    <p><strong>Fórmula:</strong> <code>X̄ ~ N(μ, σ / √n)</code></p>
+    <p><strong>Ejemplo:</strong> μ=40, σ=10, n=50 → <code>X̄ ~ N(40, 1.41)</code></p>
+
+    <h3>Teorema de la Ley de los Grandes Números (Bernoulli)</h3>
+    <p><strong>Trabaja con:</strong> Variables discretas (éxito/fracaso)</p>
+    <p><strong>Desarrollo:</strong> Al aumentar los ensayos, la frecuencia relativa tiende a la probabilidad real.</p>
+    <p><strong>Fórmula:</strong> <code>limₙ→∞ (k/n) = p</code></p>
+    <p><strong>Ejemplo:</strong> Después de 1000 partidos, un equipo gana el 60% → p = 0.6</p>
+
+    <h3>Teorema de Bayes</h3>
+    <p><strong>Trabaja con:</strong> Variables categóricas (como enfermo/sano)</p>
+    <p><strong>Desarrollo:</strong> Ajusta la probabilidad inicial con nueva información (probabilidad condicional).</p>
+    <p><strong>Fórmula:</strong> <code>P(A|B) = [P(B|A) ⋅ P(A)] / P(B)</code></p>
+    <p><strong>Ejemplo:</strong> Si el test dio positivo, Bayes permite calcular la probabilidad real de estar enfermo.</p>
+
+    <h3>Teorema de la Probabilidad Total</h3>
+    <p><strong>Trabaja con:</strong> Variables categóricas con múltiples caminos</p>
+    <p><strong>Desarrollo:</strong> Calcula la probabilidad total considerando todos los caminos posibles.</p>
+    <p><strong>Fórmula:</strong> <code>P(B) = Σ P(B|Aᵢ) ⋅ P(Aᵢ)</code></p>
+    <p><strong>Ejemplo:</strong> Calcular la probabilidad de que un celular sea defectuoso sin saber qué fábrica lo produjo.</p>
+
+    <h2>Relación entre Variables y Teoremas</h2>
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Teorema Ideal</th>
+        <th>Aplicación</th>
+      </tr>
+      <tr>
+        <td>Cuantitativa continua</td>
+        <td>Teorema del Límite Central</td>
+        <td>Estimar promedios, control de calidad</td>
+      </tr>
+      <tr>
+        <td>Cuantitativa discreta</td>
+        <td>Ley de los grandes números</td>
+        <td>Frecuencia de resultados</td>
+      </tr>
+      <tr>
+        <td>Cualitativa</td>
+        <td>Bayes y Prob. Total</td>
+        <td>Diagnóstico, decisiones condicionales</td>
+      </tr>
+    </table>
+
+    <h2>Conclusión:</h2>
+    <p>Las variables estadísticas determinan qué tipo de análisis y qué teorema aplicar.</p>
+    <p>Cada teorema permite predecir, inferir o actualizar información a partir de datos.</p>
+    <p>Comprenderlas con ejemplos reales facilita su aprendizaje y aplicación práctica.</p>
+  </div>
+</body>
+</html>

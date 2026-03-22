@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estadísticas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('images/fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem 2rem;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      width: 250px;
+      height: 300px;
+      font-size: 1.1rem;
+      border-radius: 20px;
+      background: #f5f5f5;
+      position: relative;
+      padding: 1rem;
+      border: 2px solid #c3c6ce;
+      transition: 0.3s ease-out;
+      overflow: visible;
+      color: black;
+    }
+
+    .card-details {
+      height: 100%;
+      gap: .5em;
+      display: grid;
+      place-content: center;
+    }
+
+    .card-button {
+      transform: translate(-50%, 125%);
+      width: 60%;
+      border-radius: 1rem;
+      border: none;
+      background-color: #008bf8;
+      color: #fff;
+      font-size: 0.85rem;
+      padding: .4rem 0.8rem;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      opacity: 0;
+      transition: 0.3s ease-out;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      border-color: #008bf8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover .card-button {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+
+    .text-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .text-body {
+      color: rgb(134, 134, 134);
+      font-size: 1rem;
+    }
+
+    .botonera {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .botonera button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7em 0.8em;
+      background-color: yellow;
+      cursor: pointer;
+      box-shadow: 3px 4px 0px black;
+      border: 3px solid black;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: black;
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
+    .botonera button:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px black;
+    }
+
+    .arrowContainer {
+      padding: 0.4em;
+      margin-left: 0.7em;
+      border: 2px solid black;
+      border-radius: 50%;
+      background-color: pink;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arrowContainer svg {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Botonera flotante fija desde Uiverse adaptada a Tailwind estándar -->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+  <div class="flex bg-white rounded-2xl px-3 py-2 shadow-lg gap-3">
+    <!-- Botón Home -->
+    <a href="index.html" title="Ir al inicio"
+       class="text-blue-600 hover:text-black inline-flex items-center p-2 border border-gray-200 bg-gray-100 hover:border-blue-400 rounded-full shadow-md transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+      </svg>
+    </a>
+
+    <!-- Botón Post List -->
+    <button title="Lista de publicaciones"
+       class="text-blue-600 hover:text-black inline-flex items-center p-2 border border-gray-200 bg-gray-100 hover:border-blue-400 rounded-full shadow-md transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z" />
+        <path
+          d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z" />
+      </svg>
+    </button>
+
+    <!-- Botón About Me -->
+    <button title="Sobre mí"
+       class="text-blue-600 hover:text-black inline-flex items-center p-2 border border-gray-200 bg-gray-100 hover:border-blue-400 rounded-full shadow-md transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="left-column">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-details">
+          <p class="text-title">Conceptos basicos</p>
+          <p class="text-body">De la estadistica y probabilidad</p>
+        </div>
+        <button class="card-button" onclick="location.href='conceptos.html'">Ir</button>
+      </div>
+
+      <div class="card">
+        <div class="card-details">
+          <p class="text-title">Teoremas estadisticos</p>
+          <p class="text-body">Junto con formulas claves</p>
+        </div>
+        <button class="card-button" onclick="location.href='teoremas.html'">Ir</button>
+      </div>
+
+      <div class="card">
+        <div class="card-details">
+          <p class="text-title">Variables estadisticas</p>
+          <p class="text-body">Y teoremas desarollados</p>
+        </div>
+        <button class="card-button" onclick="location.href='variables.html'">Ir</button>
+      </div>
+    </div>
+
+    <div class="botonera">
+      <button onclick="location.href='calculadora.html'">
+        <span>Calculadora estadistica</span>
+        <div class="arrowContainer">
+          <svg width="20" height="20" viewBox="0 0 45 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43.7678 20.7678C44.7441 19.7915 44.7441 18.2085 43.7678 17.2322L27.8579 1.32233C26.8816 0.34602 25.2986 0.34602 24.3223 1.32233C23.346 2.29864 23.346 3.88155 24.3223 4.85786L38.4645 19L24.3223 33.1421C23.346 34.1184 23.346 35.7014 24.3223 36.6777C25.2986 37.654 26.8816 37.654 27.8579 36.6777L43.7678 20.7678ZM0 21.5L42 21.5V16.5L0 16.5L0 21.5Z" fill="black"/>
+          </svg>
+        </div>
+      </button>
+
+      <button onclick="location.href='simulador.html'">
+        <span>Simulador de probabilidad</span>
+        <div class="arrowContainer">
+          <svg width="20" height="20" viewBox="0 0 45 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43.7678 20.7678C44.7441 19.7915 44.7441 18.2085 43.7678 17.2322L27.8579 1.32233C26.8816 0.34602 25.2986 0.34602 24.3223 1.32233C23.346 2.29864 23.346 3.88155 24.3223 4.85786L38.4645 19L24.3223 33.1421C23.346 34.1184 23.346 35.7014 24.3223 36.6777C25.2986 37.654 26.8816 37.654 27.8579 36.6777L43.7678 20.7678ZM0 21.5L42 21.5V16.5L0 16.5L0 21.5Z" fill="black"/>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
