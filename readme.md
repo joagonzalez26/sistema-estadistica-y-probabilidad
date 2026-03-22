@@ -106,18 +106,7 @@ Además, el proyecto incluye archivos de estilos, scripts, imágenes y estructur
 
 # Opción 1: Ejecutarlo con Flask
 
-1. Clonar este repositorio:
-
-
-git clone URL_DEL_REPOSITORIO
-Entrar a la carpeta del proyecto:
-cd sistema-estadistica-probabilidad
-Instalar el framework Flask:
-pip install flask
-Ejecutar el proyecto:
-python app.py
-Abrir en el navegador la IP tirada por la terminal del proyecto:
-http://
+1. Clonar este repositorio y una vez ejecutado abrir en el navegador la IP tirada por la terminal del proyecto
 
 ---
 
