@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Este proyecto es una aplicación educativa e interactiva sobre **Estadística y Probabilidad**, desarrollada a partir de los conocimientos adquiridos durante el cursado universitario de esta materia.
+Aplicación educativa e interactiva sobre **Estadística y Probabilidad**, desarrollada a partir de los conocimientos adquiridos durante el cursado universitario de esta materia.
 
 Lo realicé como una forma de **llevar la teoría a un proyecto concreto**, integrando explicaciones, navegación por contenidos, herramientas prácticas y una interfaz visual moderna.
 
