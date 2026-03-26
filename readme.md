@@ -123,20 +123,6 @@ npm start
 
 ---
 
-## Sobre el proyecto
-
-Este sistema no fue hecho solamente como práctica técnica, sino como una forma de consolidar y aplicar conocimientos universitarios reales en un desarrollo propio.
-
-Después de finalizar la materia de Estadística y Probabilidad con nota 10, decidí transformar gran parte de esos contenidos en una aplicación que pudiera:
-
-servir para estudiar
-explicar conceptos importantes
-mostrar herramientas prácticas
-tener una presentación visual profesional
-formar parte de mi portfolio de proyectos
-
----
-
 # Autor
 Joaquín González
 
@@ -162,7 +148,7 @@ mejorar aún más la versión de escritorio
 
 # Nota personal
 
-Este proyecto representa mucho para mí porque no nació solamente desde la programación, sino desde el aprendizaje real de una materia universitaria que logré cerrar con una nota final de 10.
+Este proyecto representa mucho para mí porque no nació solamente desde la programación, sino desde el aprendizaje real de una materia universitaria.
 
 Quise convertir ese esfuerzo en algo concreto: un sistema visual, funcional y útil, donde los conocimientos de Estadística y Probabilidad pudieran verse aplicados en una herramienta real.
 
