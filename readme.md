@@ -1,4 +1,4 @@
-# Software
+# Software 👨🏻‍💻
 
 <img width="865" height="477" alt="e" src="https://github.com/user-attachments/assets/cbd1ff4f-07e8-4e09-b491-4fdd9ff901ff" />
 
