@@ -1,6 +1,6 @@
 # Software de Estadistica y Probabilidad 
 
-![Uploading Captura de pantalla 2026-03-30 a la(s) 14.46.20.png…]()
+<img width="865" height="477" alt="e" src="https://github.com/user-attachments/assets/cbd1ff4f-07e8-4e09-b491-4fdd9ff901ff" />
 
 ## Descripción
 
