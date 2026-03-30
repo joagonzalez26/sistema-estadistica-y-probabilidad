@@ -1,5 +1,7 @@
 # Software de Estadistica y Probabilidad 
 
+![Uploading Captura de pantalla 2026-03-30 a la(s) 14.46.20.png…]()
+
 ## Descripción
 
 Aplicación educativa e interactiva sobre **Estadística y Probabilidad**, desarrollada a partir de los conocimientos adquiridos durante el cursado universitario de esta materia.
