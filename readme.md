@@ -1,8 +1,8 @@
-# Software 
+
 
 <img width="865" height="477" alt="e" src="https://github.com/user-attachments/assets/cbd1ff4f-07e8-4e09-b491-4fdd9ff901ff" />
 
-## Descripción
+## Descripción del Software
 
 Aplicación educativa e interactiva sobre **Estadística y Probabilidad**, desarrollada a partir de los conocimientos adquiridos durante el cursado universitario de esta materia.
 
