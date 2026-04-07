@@ -8,7 +8,7 @@ Aplicación educativa e interactiva sobre **Estadística y Probabilidad**, desar
 
 Lo realicé como una forma de **llevar la teoría a un proyecto concreto**, integrando explicaciones, navegación por contenidos, herramientas prácticas y una interfaz visual moderna.
 
-Este proyecto tiene un valor académico y personal muy importante para mí, ya que fue desarrollado al cerrar la materia de **Estadística y Probabilidad con calificación 10**, transformando lo aprendido en una aplicación funcional, visual y presentable. **Cuenta con texto y símbolos flotantes**
+Este proyecto tiene un valor académico y personal muy importante para mí, ya que fue desarrollado al cerrar la materia de **Estadística y Probabilidad**, transformando lo aprendido en una aplicación funcional, visual y presentable. **Cuenta con texto y símbolos flotantes**
 
 ---
 
